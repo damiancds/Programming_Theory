@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float health { get; private set; }
+    public int health { get; private set; }
     public float speed { get; set; }
     public float jumpForce { get; set; }
     [SerializeField]
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        health = 100;
+        health = 5;
         speed = 1;
         jumpForce = 250;
         gm = FindObjectOfType<GameManager>();
@@ -40,6 +40,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce);
+        }
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if(!gm.isGameOver) health--;
         }
     }
 }
