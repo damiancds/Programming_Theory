@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBall : EnemyBase
+public class EnemyBall : EnemyBase //INHERITANCE
 {
     // Start is called before the first frame update
     void Start()

@@ -8,18 +8,16 @@ public class GameManager : MonoBehaviour
     public int enemyCount = 1;
     public int xyBounds = 12;
     public float time = 0f;
-
     [SerializeField] GameObject[] enemiesToSpawn;
     [SerializeField] GameObject pickupsToSpawn;
     [SerializeField] float timeTilSpawn;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         StartCoroutine("GenerateEnemies");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isGameOver) time += Time.deltaTime;
@@ -41,10 +39,8 @@ public class GameManager : MonoBehaviour
         yield break;
 
     }
-    public void GeneratePickups()
-    {
 
-    }
+    //ABSTRACTION
     public Vector3 RandSpawn()
     {
         return new Vector3(Random.Range(-xyBounds, xyBounds), Random.Range(3, xyBounds/2), Random.Range(-xyBounds, xyBounds));

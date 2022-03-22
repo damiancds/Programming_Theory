@@ -14,15 +14,22 @@ public class EnemyBase : MonoBehaviour
         speed = 1;
         rb = GetComponent<Rigidbody>();
     }
+
+    //ABSTRACTION
     public Vector3 FindPlayer()
     {
         Player player = FindObjectOfType<Player>();
         return (player.transform.position - transform.position).normalized;
     }
-    public virtual void Move(Vector3 target)
+
+
+
+    public virtual void Move(Vector3 target) //POLYMORPHISM (SETUP)
     {
         rb.AddForce(target*speed, ForceMode.Force);
     }
+
+
     public void CheckDeath()
     {
         if (health <= 0)

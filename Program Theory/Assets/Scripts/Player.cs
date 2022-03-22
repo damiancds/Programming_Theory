@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    //ENCAPSULATION
     public int health { get; private set; }
     public float speed { get; set; }
     public float jumpForce { get; set; }
-    [SerializeField]
-    private Light flashlight;
+    
+    [SerializeField] private Light flashlight;
     GameManager gm;
     Rigidbody rb;
 
